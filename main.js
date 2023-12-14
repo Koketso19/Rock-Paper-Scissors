@@ -14,7 +14,12 @@ function  playRound() {
 }
 
 function playerChoice() {
-    //get input from player
+    let input = prompt("Type Rock,Ppaer,or Scissors");
+    while(input== null){
+      input = promt("Type Rock, paper, or scissors");  
+    }
+    input = input.toLowerCase();
+    console.log(input)
 }
 
 function computerChoice() {
