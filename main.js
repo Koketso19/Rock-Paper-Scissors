@@ -1,12 +1,13 @@
-const choice = ["rock","paper","scissors"];
-const winners =[];
+
+const choices = ["rock", "paper", "scissors"];
+const winners = [];
 
 function game() {
-    for(let i = 0; i <= 5; i++) {
-        playerRound(i);
+    for (let i = 1; i <= 5; i++) {
+        playRounds(i);
 
     }
-    document.querySelector("button").texContent = 'play new game';
+    document.querySelector("button").textContent = 'play new game';
     
     logWins();
 
@@ -19,25 +20,28 @@ function game() {
 function playRounds(round) {
     const playerSelection = playerChoice();
     const computerSeletion = computerChoice();
-    const winner = checkWinner(playerSelection,computerSeletion);
+    const winner = checkWinner(playerSelection, computerSeletion);
     winners.push(winner);
-    logRounds(playerSelection,computerSeletion,winner,round)
+    logRounds(playerSelection, computerSeletion, winner, round);
 
 } 
  
-function playerChoice () {
-    //get input from player
-    let input = prompt('Type Rock, Paper, or scissors');
+function playerChoice() {
+    //get input from player 
+    let input = prompt('Type Rock, Paper, or Scissors');
     while (input == null) {
-        input = prompt('Type Rock, Paper, or scissors');
+        input = prompt('Type Rock, Paper, or Scissors');
     }
     input = input.toLowerCase();
-    let check = validateInput(input)
-    while(check == false){
+    let check = validateInput(input);
+    while (check == false) {
         input = prompt(
-            "Type Rock, Paper, or scissors. Spelling needs to be exact, but capitilization doesnt matter"
+            "Type Rock, Paper, or Scissors. Spelling needs to be exact, but capitilization doesnt matter"
         );
-        input = input.toLowerCase();
+        while (input == null) {
+            input = prompt("Type Rock, Paper, or Scissors");
+        
+          }  input = input.toLowerCase();
         check = validateInput(input);
 
     }
@@ -45,24 +49,26 @@ function playerChoice () {
 
 }
 
-function computerChoice () {
+function computerChoice() {
     //get random input for computer
     return choices[Math.floor(Math.random()*choices.length)]
 }
 
 function validateInput(choice){
-    return choices.Includes(choice);
+    return choices.includes(choice);
     
 }
 function checkWinner(choiceP, choiceC){
-    if(choiceP ===choiceC){
+    if (choiceP === choiceC) {
         return 'Tie';
-    } else if ((choiceP === "rock" && choiceC =="scissors") ||
-     (choiceP === "paper" && choiceC =="rock") || 
-     (choiceP === "scissors" && choiceC =="paper") ){
+    } else if (
+        (choiceP === "rock" && choiceC == "scissors") ||
+        (choiceP === "paper" && choiceC == "rock") || 
+        (choiceP === "scissors" && choiceC == "paper") 
+        ) {
         return 'player';
-    } else{
-        return "computer";
+    } else {
+        return "Computer";
 }
 
 }
@@ -78,11 +84,11 @@ function logWins(){
 
 }
 
-function logRounds(playerChoice,computerChoice,winner,Round){
-    console.log('Rounds;',round);
+function logRounds(playerChoice,computerChoice,winner,round){
+    console.log("Rounds;", round);
     console.log('player Chose:',playerChoice);
-    console,log('Computer Chose:',computerChoice);
-    console,log(winner,' Won the Round');
+    console.log('Computer Chose:',computerChoice);
+    console.log(winner,' Won the Round');
     console.log(".......................................");
 }
 
