@@ -10,11 +10,19 @@
 
 
   <body>
-    <div class="flex-container">
-       <h1>Rock Paper Scissors</h1> 
-       <button onClick="game()">Start Game</button>
-    </div>
     
+  <h1>Rock - Paper - Scissors</h1>
+
+  <div class="choices">
+  <button onclick="playGame('rock')">👊</button>
+  <button onclick="playGame('paper')">🖐</button>
+  <button onclick="playGame('scissors')">✌</button>
+  </div>
+
+  <div id="playerDisplay">PLAYER: </div>
+  <div id="computerDisplay">COMPUTER: </div>
+  <div id="resultDisplay">IT'S A TIE: </div>
+  
   </body>
   <script src="main.js"></script>
 
